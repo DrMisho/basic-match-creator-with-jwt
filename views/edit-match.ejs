@@ -1,0 +1,18 @@
+<%- include('layouts/header'); %>
+
+<div> 
+    <form action="/edit-match/<%= match._id %>" method="post">
+        <h1>Match ID: <%= match._id %> </h1>
+        <br>
+        <h1>Team 1 Name: <input type="text" placeholder="Team 1" value="<%= match.Team1_name %> " name="team1">  </h1>
+        <br>
+        <h1>Team 2 Name: <input type="text" placeholder="Team 1" value="<%= match.Team2_name %>" name="team2"> </h1>
+        <br>
+        <h1>
+            <button type="submit">Edit</button>
+        </h1>
+    </form>
+    
+</div>
+</body>
+</html>

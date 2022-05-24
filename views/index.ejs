@@ -1,0 +1,20 @@
+<%- include('layouts/header'); %>
+    <div>
+            <h1> ------------ Matches ------------- </h1>
+            <% var i = 1 %> 
+           <% Matches.forEach((match)=>{ %>
+                <h1>
+                        <a href="/get-match/<%= match._id %> ">match <%= i %> </a>
+                </h1>
+           <% i++ }) %>
+    </div>
+    <div>
+        <h1> ------------ Players ------------- </h1>
+       <% Players.forEach((player)=>{ %>
+            <h1>
+                    <a href="/get-player/<%= player._id %> ">Player Name: <%= player.name %> </a>
+            </h1>
+       <% }) %>
+</div>
+</body>
+</html>

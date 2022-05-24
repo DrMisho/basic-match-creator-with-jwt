@@ -1,0 +1,17 @@
+<%- include('layouts/header'); %>
+
+<div> 
+    <h1>Match ID: <%= match._id %> </h1>
+    <br>
+    <h1>Team 1 Name: <%= match.Team1_name %> </h1>
+    <br>
+    <h1>Team 2 Name: <%= match.Team2_name %> </h1>
+    <br>
+    <h1>Date: <%= match.date %> </h1>
+    <br>
+    <h1>
+        <a href="/edit-match/<%= match._id %>">Edit </a>
+    </h1>
+</div>
+</body>
+</html>
