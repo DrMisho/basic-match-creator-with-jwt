@@ -1,0 +1,16 @@
+<%- include('layouts/header'); %>
+<%- include('layouts/navbar'); %>
+<div> 
+    <form action="/add-player" method="post">
+        <h1>Player Name: <input type="text" placeholder="player name" name="name">  </h1>
+        <br>
+        <h1>Fixed Position: <input type="text" placeholder="Fixed Position" name="pos">  </h1>
+        <br>
+        <h1>
+            <button type="submit">Add Player</button>
+        </h1>
+    </form>
+    
+</div>
+</body>
+</html>

@@ -41,6 +41,17 @@ async function editPlayerPost (req, res) {
     res.redirect('/get-player/'+id);
 }
 
+async function addPlayerGet (req, res) {
+    res.render('add-player',{
+        title: "Add Player"
+    });
+}
 
+async function addPlayerPost (req, res) {
+    var name = req.body.name;
+    var fixed = req.body.pos;
+    const error = await Player.create({name: name, fixed: fixed});
+    res.redirect('/home');
+}
 
-module.exports = {getPlayer, editPlayerGet, editPlayerPost};
+module.exports = {getPlayer, editPlayerGet, editPlayerPost, addPlayerGet, addPlayerPost};

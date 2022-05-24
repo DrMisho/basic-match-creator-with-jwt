@@ -1,0 +1,43 @@
+<%- include('layouts/header'); %>
+<%- include('layouts/navbar'); %>
+<div> 
+    <form action="/attach-player" method="post">
+        <p>Please select Player:</p>
+        <% players.forEach((player)=>{ %>
+            <label><%= player.name %></label>
+            <input type="radio" id="name" name="name" value="<%= player.name %>">
+            <br>
+        <% }) %>
+        <p>Please select Match:</p>
+        <% matches.forEach((match)=>{ %>
+            <label>match <%= match.id %></label>
+            <input type="radio" id="id" name="id" value="<%= match.id %>">
+            <br>
+        <% }) %>
+        <p>Please select Position:</p>
+            <label>offensive</label>
+            <input type="radio" id="position" name="position" value="offensive">
+            <br>
+            <label>defensive</label>
+            <input type="radio" id="position" name="position" value="defensive">
+            <br>
+            <label>midfielder</label>
+            <input type="radio" id="position" name="position" value="midfielder">
+            <br>
+            <label>right winger</label>
+            <input type="radio" id="position" name="position" value="right winger">
+            <br>
+            <label>left winger</label>
+            <input type="radio" id="position" name="position" value="left winger">
+            <br>
+            <label>goal keeper</label>
+            <input type="radio" id="position" name="position" value="goal keeper">
+            <br>
+
+            <button type="submit">Attach Player</button>
+
+    </form>
+    
+</div>
+</body>
+</html>

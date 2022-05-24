@@ -1,16 +1,17 @@
 <%- include('layouts/header'); %>
-
+<%- include('layouts/navbar'); %>
 <div> 
     <h1>Player ID: <%= player._id %> </h1>
     <br>
     <h1>Name: <%= player.name %> </h1>
     <br>
+    <h1>Fixed Position: <%= player.fixed %></h1>
+    <br>
     <h1>
         <a href="/edit-player/<%= player._id %>">Edit Player </a>
     </h1>
-    <% var i = 1 %>
     <% p.forEach((position)=> { %>
-        <h1>-------------- match <%= i %> -------------- </h1>
+        <h1>-------------- match <%= position.match.id %> -------------- </h1>
         <h1>
             Team1 Name: <%= position.match.Team1_name %>
         </h1>

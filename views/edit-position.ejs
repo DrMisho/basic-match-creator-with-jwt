@@ -1,5 +1,5 @@
 <%- include('layouts/header'); %>
-
+<%- include('layouts/navbar'); %>
 <div> 
     <form action="/edit-position/<%= position.player %>/<%= position.match %>" method="post">
         <h1>Position: <input type="text" placeholder="Position" value="<%= position.pos %> " name="position">  </h1>

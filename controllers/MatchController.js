@@ -31,6 +31,27 @@ async function editMatchPost (req, res) {
     res.redirect('/get-match/'+id)
 }
 
+async function addMatchGet (req, res) {
+    res.render('add-match',{
+        title: "Add Match"
+    });
+}
 
+async function addMatchPost (req, res) {
+    var id = req.body.id;
+    var team1_name = req.body.team1;
+    var team2_name = req.body.team2;
+    console.log(req.body)
+    if(req.body.date == "")
+    {
+        const error = await Match.create({id: id, Team1_name: team1_name, Team2_name: team2_name});
+    }
+    else
+    {
+        var date = new Date(req.body.date)
+        const error = await Match.create({id: id, Team1_name: team1_name, Team2_name: team2_name, date: date});
+    }
+    res.redirect('/home');
+}
 
-module.exports = {getMatch, editMatchGet, editMatchPost};
+module.exports = {getMatch, editMatchGet, editMatchPost, addMatchGet, addMatchPost};

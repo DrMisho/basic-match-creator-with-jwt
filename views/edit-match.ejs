@@ -1,8 +1,8 @@
 <%- include('layouts/header'); %>
-
+<%- include('layouts/navbar'); %>
 <div> 
     <form action="/edit-match/<%= match._id %>" method="post">
-        <h1>Match ID: <%= match._id %> </h1>
+        <h1>Match ID: <%= match.id %> </h1>
         <br>
         <h1>Team 1 Name: <input type="text" placeholder="Team 1" value="<%= match.Team1_name %> " name="team1">  </h1>
         <br>

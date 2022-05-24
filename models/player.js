@@ -6,7 +6,8 @@ const playerSchema = new Schema(
       {
         type: String,
         required: [true, 'Name must not be empty']
-      }
+      },
+      fixed: String
     }
   )
 
