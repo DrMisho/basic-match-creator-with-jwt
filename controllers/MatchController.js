@@ -28,11 +28,9 @@ async function editMatchPost (req, res) {
     {
         console.log(error);
     }
-    var match = await Match.findById(id);
-    res.render('match', {
-        title: "match",
-        match
-    })
+    res.redirect('/get-match/'+id)
 }
+
+
 
 module.exports = {getMatch, editMatchGet, editMatchPost};

@@ -1,0 +1,37 @@
+<%- include('layouts/header'); %>
+
+<div> 
+    <h1>Player ID: <%= player._id %> </h1>
+    <br>
+    <h1>Name: <%= player.name %> </h1>
+    <br>
+    <h1>
+        <a href="/edit-player/<%= player._id %>">Edit Player </a>
+    </h1>
+    <% var i = 1 %>
+    <% p.forEach((position)=> { %>
+        <h1>-------------- match <%= i %> -------------- </h1>
+        <h1>
+            Team1 Name: <%= position.match.Team1_name %>
+        </h1>
+        <br>
+        <h1>
+            Team2 Name: <%= position.match.Team2_name %>
+        </h1>
+        <br>
+        <h1>
+            Date: <%= position.match.date %>
+        </h1>
+        <br>
+        <h1>
+            Position: <%= position.pos %>
+        </h1>
+        <br>
+        <h1>
+            <a href="/edit-position/<%= player._id %>/<%= position.match._id %>">Edit Position</a>
+        </h1>
+    <%}) %>
+    
+</div>
+</body>
+</html>

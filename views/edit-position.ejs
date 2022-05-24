@@ -1,0 +1,14 @@
+<%- include('layouts/header'); %>
+
+<div> 
+    <form action="/edit-position/<%= position.player %>/<%= position.match %>" method="post">
+        <h1>Position: <input type="text" placeholder="Position" value="<%= position.pos %> " name="position">  </h1>
+        <br>
+        <h1>
+            <button type="submit">Edit Position</button>
+        </h1>
+    </form>
+    
+</div>
+</body>
+</html>

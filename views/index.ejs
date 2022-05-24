@@ -7,6 +7,10 @@
                         <a href="/get-match/<%= match._id %> ">match <%= i %> </a>
                 </h1>
            <% i++ }) %>
+           <br>
+           <h2>
+                <a class="text-danger" href="/add-match">Add Match</a>
+           </h2>
     </div>
     <div>
         <h1> ------------ Players ------------- </h1>
@@ -15,6 +19,10 @@
                     <a href="/get-player/<%= player._id %> ">Player Name: <%= player.name %> </a>
             </h1>
        <% }) %>
+       <br>
+       <h2>
+        <a class="text-danger" href="/add-player">Add Player</a>
+        </h2>
 </div>
 </body>
 </html>

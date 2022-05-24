@@ -1,0 +1,16 @@
+<%- include('layouts/header'); %>
+
+<div> 
+    <form action="/edit-player/<%= player._id %>" method="post">
+        <h1>Player ID: <%= player._id %> </h1>
+        <br>
+        <h1>Name: <input type="text" placeholder="Name" value="<%= player.name %> " name="name">  </h1>
+        <br>
+        <h1>
+            <button type="submit">Edit Player</button>
+        </h1>
+    </form>
+    
+</div>
+</body>
+</html>
