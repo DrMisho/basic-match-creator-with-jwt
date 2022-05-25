@@ -1,0 +1,32 @@
+<%- include('layouts/header'); %>
+<%- include('layouts/navbar'); %>
+
+
+    <div style="font-size: 30px;">
+        <form id="form" action="/register-admin" method="post">
+            <label>ADMIN NAME: <input type="text" id="username" name="username" placeholder="User name"></label>
+            <br>
+            <label>PASSWORD: <input type="password" id="password" name="password" placeholder="Password"></label>
+            <br>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+    
+    <script>
+        const form = document.getElementById('form');
+        const name = document.getElementById("username")
+        const password = document.getElementById("password")
+        
+        const socket = io();
+        socket.on('connection')
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            if (name.value) {
+            socket.emit('message', {name: name.value, password: password.value});
+            name.value = '';
+            password.value = '';
+            }
+        });
+    </script>
+</body>
+</html>

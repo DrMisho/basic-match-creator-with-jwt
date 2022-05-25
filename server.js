@@ -1,5 +1,9 @@
 const express = require('express');
 const app = express();
+const http = require('http');
+const server = http.createServer(app);
+const { Server } = require("socket.io");
+const io = new Server(server);
 const ejs = require('ejs');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -10,16 +14,22 @@ const PlayerController = require('./controllers/PlayerController');
 const PositionController = require('./controllers/PositionController');
 const indexControllers = require('./controllers/indexControllers');
 const AttachController = require('./controllers/AttachController');
+const RegisterAdminController = require('./controllers/RegisterAdminController');
+const AuthenicationController = require('./controllers/AuthenicationController');
 
 mongoose.connect('mongodb://localhost:27017/test_project');
 
 app.use(express.json())
 app.use(bodyParser.json());
+app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 
 
+
 app.get('/', indexControllers);
+
+app.post('/login', AuthenicationController);
 
 app.get('/home', Home);
 
@@ -43,7 +53,18 @@ app.post('/add-player', PlayerController.addPlayerPost);
 app.get('/attach-player', AttachController.attachGet);
 app.post('/attach-player', AttachController.attachPost);
 
+app.get('/register-admin', RegisterAdminController.registerPage)
+
+io.on('connection', (socket) => {
+    console.log('a user connected');
+    socket.on('message', function(msg){
+        RegisterAdminController.registerAdmin(msg)
+
+    })
+  });
+
 const port = 3000;
-app.listen(port, ()=>{
+server.listen(port, ()=>{
     console.log(`server is running on port ${port}`);
 })
+
