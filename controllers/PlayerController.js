@@ -7,13 +7,12 @@ async function getPlayer (req, res) {
     var player = await Player.findById(id);
     var positions = await Position.find({player: id});
     var p = [];
-    for(var i = 0; i<positions.length; i++)
+    for(var i = 0; i<positions.length; i++) // to get all matches that player X attended
     {
         const match = await Match.findById(positions[i].match);
         var merge = { pos: positions[i].pos , match};
         p.push(merge);
     }
-    console.log(p);
     res.render('player', {
         title: "Player Info",
         player,
@@ -33,7 +32,8 @@ async function editPlayerGet (req, res) {
 async function editPlayerPost (req, res) {
     var id = req.params.id;
     const name = req.body.name;
-    const error = await Player.updateOne({_id: id}, {name : name});
+    const position = req.body.pos;
+    const error = await Player.updateOne({_id: id}, {name : name, fixed: position});
     if(error)
     {
         console.log(error);

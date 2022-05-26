@@ -1,6 +1,6 @@
 <%- include('layouts/header'); %>
 <%- include('layouts/navbar'); %>
-<div> 
+<div text-align: center; padding: 30px;> 
     <form action="/edit-position/<%= position.player %>/<%= position.match %>" method="post">
         <h1>Position: <input type="text" placeholder="Position" value="<%= position.pos %> " name="position">  </h1>
         <br>

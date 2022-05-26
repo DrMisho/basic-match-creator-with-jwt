@@ -41,8 +41,7 @@ async function addMatchPost (req, res) {
     var id = req.body.id;
     var team1_name = req.body.team1;
     var team2_name = req.body.team2;
-    console.log(req.body)
-    if(req.body.date == "")
+    if(req.body.date == "")  // if there is no date => default date 
     {
         const error = await Match.create({id: id, Team1_name: team1_name, Team2_name: team2_name});
     }

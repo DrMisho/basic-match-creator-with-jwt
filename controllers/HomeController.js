@@ -1,6 +1,5 @@
 const Player = require('../models/player');
 const Match = require('../models/match');
-const Position = require('../models/position');
 
 async function home (req,res) {
     const Matches = await Match.find({});

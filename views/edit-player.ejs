@@ -1,10 +1,12 @@
 <%- include('layouts/header'); %>
 <%- include('layouts/navbar'); %>
-<div> 
+<div style="text-align: center; padding: 30px;"> 
     <form action="/edit-player/<%= player._id %>" method="post">
         <h1>Player ID: <%= player._id %> </h1>
         <br>
         <h1>Name: <input type="text" placeholder="Name" value="<%= player.name %> " name="name">  </h1>
+        <br>
+        <h1>Fixed Position: <input type="text" placeholder="Name" value="<%= player.fixed %> " name="pos">  </h1>
         <br>
         <h1>
             <button type="submit">Edit Player</button>

@@ -1,6 +1,5 @@
-const Player = require('../models/player');
 const Position = require('../models/position');
-const Match = require('../models/match');
+
 
 async function editPositionGet (req, res) {
     var id_player = req.params.id1;
@@ -14,7 +13,7 @@ async function editPositionGet (req, res) {
 
 async function editPositionPost (req, res) {
     var id_player = req.params.id1;
-    var id_match = req.params.id2;
+    var id_match = req.sparams.id2;
     const error = await Position.updateOne({$and: [ {player: id_player} , {match: id_match} ]}, {pos: req.body.position});
     if(error)
     {
