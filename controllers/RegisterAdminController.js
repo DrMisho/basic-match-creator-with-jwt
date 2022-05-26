@@ -10,7 +10,8 @@ async function registerPage (req, res) {
 
 async function registerAdmin (msg) {
     
-    const hashedPassword = await bcrypt.hash(msg.password, 10)
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(msg.password, salt)
     const error = await User.create({username: msg.name, password: hashedPassword, admin: 1});
     
 } 

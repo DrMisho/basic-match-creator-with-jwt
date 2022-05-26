@@ -2,14 +2,42 @@
 
 
     <div style="font-size: 30px;">
-        <form action="/login" method="post">
+        <form >
             <label>USER NAME: <input type="text" id="username" name="username" placeholder="User name"></label>
             <br>
             <label>PASSWORD: <input type="password" id="password" name="password" placeholder="Password"></label>
             <br>
-            <button type="submit">Login</button>
+            <button onclick="s">Login</button>
         </form>
     </div>
-
+    <script>
+        const form = document.querySelector('form');
+        form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        // get values
+        const username = form.username.value;
+        const password = form.password.value;
+        try {
+        const res = await fetch('/login', { 
+            method: 'POST', 
+            body: JSON.stringify({ username, password }),
+            headers: {'Content-Type': 'application/json'}
+        });
+        const data = await res.json();
+        console.log(data);
+        if (data.errors) {
+            emailError.textContent = data.errors.email;
+            passwordError.textContent = data.errors.password;
+        }
+        if (data.user) {
+            location.assign('/home');
+        }
+        }
+        catch (err) {
+        console.log(err);
+        }
+    });
+    </script>
 </body>
 </html>
